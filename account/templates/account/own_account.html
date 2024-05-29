@@ -1,0 +1,19 @@
+{% extends 'core/base.html' %}
+
+{% block title %} {{ user.name }} {% endblock %}
+
+
+{% block content %}
+
+    <h1 class="py-6 px-8 text-center text-3xl">Your Account</h1>
+
+    <div class="p-10 space-y-5">
+        <h3><strong>{{ user.name|title }}</strong></h3>
+        <h3><strong>{{ user.email }}</strong></h3>
+        <h3>Company: <strong>{{ user.company|title }}</strong></h3>
+        <h3>Joined: <strong>{{ user.date_joined }}</strong></h3>
+        <a href="{% url 'account:edit_account' user.user_id %}" class="px-5 py-3 text-white inline-block bg-blue-700">Edit Profile</a>
+    </div>
+
+
+{% endblock %}
