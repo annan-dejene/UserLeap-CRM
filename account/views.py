@@ -60,20 +60,20 @@ def signup(request):
     return render(request, "account/signup.html", {})
 
 
-@login_required
+@login_required(login_url="/login")
 def logout(request):
     auth_logout(request)
 
     return redirect("/")
 
 
-@login_required
+@login_required(login_url="/login")
 def own_account(request, pk):
     usr = CustomUser.objects.get(pk=pk)
     return render(request, "account/own_account.html", {"user": usr})
 
 
-@login_required
+@login_required(login_url="/login")
 def edit_account(request, pk):
     usr = CustomUser.objects.get(pk=pk)
 
